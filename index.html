@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts - Anton, Sofia Sans Condensed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Sofia+Sans+Condensed:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6.4.0 - Stylesheet and Icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- html2canvas.min.js - JavaScript library for Screenshot and PDFs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+
+  <!-- Google Fonts - Dancing Script, DynaPuff, Lobster, Nova Oval, Orbitron, Playfair Display, Rajdhani, Rubik Wet Paint, Sedgwick Ave Display, Tilt Prism -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=DynaPuff&family=Lobster&family=Nova+Oval&family=Orbitron:wght@400;500;700&family=Playfair+Display:wght@400;500;600&family=Rajdhani:wght@300;400;500&family=Rubik+Wet+Paint&family=Sedgwick+Ave+Display&family=Tilt+Prism&display=swap" rel="stylesheet">
+
+  <title>Calculator</title>
+</head>
+
+<body>
+  <main>
+    <div class="camera"></div>
+    <div id="settings">
+      <i class="fa-solid fa-arrow-left" id="back-1" onclick="back_1()"></i>
+      <h2 id="themes" onclick="themes()"><i class="fa-solid fa-shirt"></i>Themes</h2>
+      <div id="themes-section">
+        <div onclick="theme('gradient-blue')" id="gradient-blue" style="background: linear-gradient(to bottom, #0072c6, #00bfff);">Gradient-blue</div>
+        <div onclick="theme('forest')" id="forest" style="background: linear-gradient(to bottom, #b2fab4, #8bc34a, #689f38, #558b2f, #33691e);">Forest</div>
+        <div onclick="theme('barbie-pink')" id="barbie-pink" style="background: linear-gradient(to bottom, #f3a7b4, #f57c9c, #f44336, #d81b60, #c2185b);">Barbie-pink</div>
+        <div onclick="theme('ocean')" id="ocean" style="background: linear-gradient(to bottom right, #1a237e, #0d47a1, #1565c0, #1976d2, #1e88e5);">Ocean</div>
+        <div onclick="theme('space')" id="space" style="background: linear-gradient(to bottom right, #0c0c0c, #1c1c1c, #2c2c2c, #3c3c3c, #4c4c4c);">Space</div>
+        <div onclick="theme('Sunset')" id="Sunset" style="background: linear-gradient(to bottom right, #fff59d, #ffb74d, #f57c00, #e65100, #bf360c);">Sunset</div>
+        <div onclick="theme('rainbow')" id="rainbow" style="background: linear-gradient(to bottom right, #e91e63, #9c27b0, #673ab7, #3f51b5, #2196f3, #00bcd4, #4caf50, #ffc107, #ff5722);">Rainbow</div>
+        <div onclick="theme('rosegold')" id="rosegold" style="background: linear-gradient(to bottom right, #e6b980, #eacda3);">Rosegold</div>
+        <div onclick="theme('mintfresh')" id="mintfresh" style="background: linear-gradient(to bottom right, #01cdfe, #01ffcd);">Mint fresh</div>
+        <div onclick="theme('electricblue')" id="electricblue" style="background: linear-gradient(to bottom right, #00c3ff, #ffff1c);">Electric Blue</div>
+        <div onclick="theme('Retro')" id="Retro" style="background: linear-gradient(to bottom right, #ff6b6b, #ffe66d);">Retro</div>
+        <div onclick="theme('bp')" id="bp" style="background: linear-gradient(to bottom right, #4b0082, #9400d3, #ff00ff);">blu-pul</div>
+        <div onclick="theme('Earthy')" id="Earthy" style="background: linear-gradient(to bottom right, #8b572a, #c79c6b);">Earthy</div>
+        <div onclick="theme('Golden')" id="Golden" style="background: linear-gradient(to bottom right, #fcb045, #fd1d1d, #833ab4);">Golden hour</div>
+        <div onclick="theme('lemonda')" id="lemonda" style="background: linear-gradient(to bottom right, #ff758c, #ff7eb3);">Pink Lemonade</div>
+      </div>
+      <h2 id="font-groups" onclick="fonti()"><i class="fa-solid fa-signature"></i>Fonts</h2>
+      <div id="fonts">
+        <div id="cursive" onclick="font('cursive')" style="font-family: 'Dancing Script', cursive;">Cursive</div>
+        <div id="DynaPuff" onclick="font('DynaPuff')" style="font-family: 'DynaPuff', cursive;">DynaPuff</div>
+        <div id="Lobster" onclick="font('Lobster')" style="font-family: 'Lobster', cursive;">Lobster</div>
+        <div id="Nova Oval" onclick="font('Nova Oval')" style="font-family: 'Nova Oval', cursive;">Nova Oval</div>
+        <div id="Orbitron" onclick="font('Orbitron')" style="font-family: 'Orbitron', sans-serif;">Orbitron</div>
+        <div id="Playfair" onclick="font('Playfair')" style="font-family: 'Playfair Display', serif;">Playfair</div>
+        <div id="Rajdhani" onclick="font('Rajdhani')" style="font-family: 'Rajdhani', sans-serif;">Rajdhani</div>
+        <div id="Rubik" onclick="font('Rubik')" style="font-family: 'Rubik Wet Paint', cursive;">Rubik</div>
+        <div id="Sedgwick" onclick="font('Sedgwick')" style="font-family: 'Sedgwick Ave Display', cursive;">Sedgwick</div>
+        <div id="Prism" onclick="font('Prism')" style="font-family: 'Tilt Prism', cursive;">Prism</div>
+      </div>
+      <h2 id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>LogOut</h2>
+    </div>
+    <div id="history">
+      <i class="fa-solid fa-xmark" id="hide" onclick="hide()"></i>
+      <div id="store-history"></div>
+      <i onclick="downloadDivData()" class="fa-solid fa-download"></i>
+    </div>
+    <div id="upper-div">
+      <div id="header">
+        <i class="fa-solid fa-bars" id="menu" onclick="menu()"></i>
+        <i onclick="history()" class="fa-solid fa-clock-rotate-left" id="click-history"></i>
+      </div>
+      <div id="screen">
+        <input type="text" id="display">
+      </div>
+    </div>
+    <hr>
+    <div id="lower-div">
+      <div id="keys">
+        <h1 id="reset" onclick="reset()">C</h1>
+        <h1 id="back" onclick="back()"><i class="fa-solid fa-delete-left"></i></h1>
+        <h1 id="divide" onclick="key('divide')">/</h1>
+        <h1 id="multiply" onclick="key('multiply')">*</h1>
+        <h1 id="1" onclick="key(1)">1</h1>
+        <h1 id="2" onclick="key(2)">2</h1>
+        <h1 id="3" onclick="key(3)">3</h1>
+        <h1 id="sub" onclick="key('sub')">-</h1>
+        <h1 id="4" onclick="key(4)">4</h1>
+        <h1 id="5" onclick="key(5)">5</h1>
+        <h1 id="6" onclick="key(6)">6</h1>
+        <h1 id="add" onclick="key('add')">+</h1>
+        <h1 id="7" onclick="key(7)">7</h1>
+        <h1 id="8" onclick="key(8)">8</h1>
+        <h1 id="9" onclick="key(9)">9</h1>
+        <h1 id="point" onclick="key('point')">.</h1>
+        <h1 id="0" onclick="key(0)">0</h1>
+        <h1 id="right-paran" onclick="key('right-paran')">(</h1>
+        <h1 id="left-paran" onclick="key('left-paran')">)</h1>
+        <h1 id="equal" onclick="result()"><i class="fa-solid fa-equals"></i></h1>
+      </div>
+    </div>
+  </main>
+
+  </script>
+</html>
+            
